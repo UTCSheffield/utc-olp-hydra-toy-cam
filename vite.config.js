@@ -26,12 +26,18 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       define: {
         // fix for hydra-synth
         global: "window"
-      },  
+      },
     }
   } else {
     // command === 'build'
     return {
       base: "/utc-olp-hydra-toy-cam/",
+      plugins: [],
+      resolve: {
+        alias: [
+
+        ]
+      },
       ...commonConfig
     }
   }
