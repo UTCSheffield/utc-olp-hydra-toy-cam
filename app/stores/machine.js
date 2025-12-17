@@ -176,26 +176,33 @@ export default function(state, emitter) {
           return !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
         }
         if (getUserMediaSupported()) {
+        
+
+          // getUsermedia parameters to force video but not audio.
+          const constraints = {
+            video: {facingMode: { ideal: "user" }},
+          };
+
+          // Activate the webcam stream.
+          navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+            video.srcObject = stream;
+            //;
+            video.addEventListener("loadeddata", () => {
+              s0.init({ src: video });
+              src(s0).out()
+              window.x = ()=>-state.videoElement.width/state.videoElement.height/(window.innerWidth/window.innerHeight);
+            });
+          }).catch(()=>{
+            s0.initVideo('https://utcsheffield.github.io/xibo-screen-info/UTC%20OLP%20Promo.mp4');
+              src(s0).out()
+              window.x = ()=>-state.videoElement.width/state.videoElement.height/(window.innerWidth/window.innerHeight);
+          });
         } else {
           console.warn("getUserMedia() is not supported by your browser");
-          return;
+          s0.initVideo('https://utcsheffield.github.io/xibo-screen-info/UTC%20OLP%20Promo.mp4');
+          src(s0).out()
+          window.x = ()=>-state.videoElement.width/state.videoElement.height/(window.innerWidth/window.innerHeight);
         }
-
-        // getUsermedia parameters to force video but not audio.
-        const constraints = {
-          video: {facingMode: { ideal: "user" }},
-        };
-
-        // Activate the webcam stream.
-        navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-          video.srcObject = stream;
-          //;
-          video.addEventListener("loadeddata", () => {
-            s0.init({ src: video });
-            src(s0).out()
-            window.x = ()=>-state.videoElement.width/state.videoElement.height/(window.innerWidth/window.innerHeight);
-          });
-        });
       };
       if (state.isMobile) {
         s0.initCam()
