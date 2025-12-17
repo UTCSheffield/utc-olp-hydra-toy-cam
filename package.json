@@ -31,7 +31,7 @@
     "node": "18.x"
   },
   "repository": {
-    "url": "https://glitch.com/~choo-hydra-vite"
+    "url": "https://github.com/UTCSheffield/utc-olp-hydra-toy-cam/"
   },
   "glitch": {
     "projectType": "generated_static"
