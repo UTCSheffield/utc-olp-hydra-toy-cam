@@ -4,12 +4,16 @@ import { defineConfig } from "vite";
 export default defineConfig(({ command, mode, ssrBuild }) => {
   const commonConfig = {
     plugins: [],
-    root: '.',
+    //root: '.',
     build: {
       minify: false,
       outDir: "build",
       commonjsOptions: {
       }
+    },
+    define: {
+      // fix for hydra-synth
+      global: "window"
     },
     server: {
       host: "0.0.0.0",
@@ -23,16 +27,12 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   if (command === 'serve') {
     return {
       ...commonConfig,
-      define: {
-        // fix for hydra-synth
-        global: "window"
-      },
+
     }
   } else {
     // command === 'build'
     return {
       base: "/utc-olp-hydra-toy-cam/",
-      plugins: [],
       resolve: {
         alias: [
 
