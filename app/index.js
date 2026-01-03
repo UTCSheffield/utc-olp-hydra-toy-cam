@@ -13,11 +13,7 @@ app.use(machine);
 import main from "./views/main";
 
 app.route("/", main);
-app.route("#", main);
-app.route("#*", main);
-app.route("/*#*", main)
-app.route("/*", notFound);
-
+//app.route("/*", notFound);
 
 function notFound() {
   return html`
