@@ -13,6 +13,7 @@ app.use(machine);
 import main from "./views/main";
 
 app.route("/", main);
+app.route("/utc-olp-hydra-toy-cam", main)
 //app.route("/*", notFound);
 
 function notFound() {
