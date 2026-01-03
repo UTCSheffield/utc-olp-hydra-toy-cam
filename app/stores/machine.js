@@ -104,10 +104,7 @@ export default function(state, emitter) {
 
   emitter.on("DOMContentLoaded", () => {
     state.stem = "";
-
     emitter.emit("render");
-
-    console.log(state.route)
     if (state.route == "/" || state.route == "utc-olp-hydra-toy-cam") {
       
       state.funcs = [
