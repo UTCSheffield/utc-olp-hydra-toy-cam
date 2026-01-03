@@ -9,6 +9,11 @@ import machine from "./stores/machine";
 
 app.use(machine);
 
+// import a template
+import main from "./views/main";
+
+app.route("/", main);
+
 app.route("/*", notFound);
 
 function notFound() {
@@ -20,11 +25,6 @@ function notFound() {
     </div>
   `;
 }
-
-// import a template
-import main from "./views/main";
-
-app.route("/", main);
 
 // start app
 app.mount("#choomount");
