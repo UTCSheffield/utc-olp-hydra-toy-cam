@@ -14,8 +14,7 @@ import main from "./views/main";
 
 app.route("/utc-olp-hydra-toy-cam/", main);
 app.route("/", main);
-
-app.route("/*", notFound);
+app.route("*", main);
 
 function notFound() {
   return html`
