@@ -12,6 +12,7 @@ app.use(machine);
 // import a template
 import main from "./views/main";
 
+app.route("/utc-olp-hydra-toy-cam/", main);
 app.route("/", main);
 
 app.route("/*", notFound);
